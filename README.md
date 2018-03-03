@@ -6,6 +6,7 @@
 2. [IDEs and plugins used](#ides-and-plugins-used)
 3. [Definition](#definition)
 4. [Math](#math)
+5. [Screenshots](#screenshots)
 
 ## Before we start
 This project is based on following articles:
@@ -142,5 +143,12 @@ private static void buildSquare(int i, int j) {
     }
 }
 ```
+
+## Screenshots
+
+Main Window:
+
+![Main Window](https://i.imgur.com/YgTBaLW.png?1)
+
 
 # UNDER CONSTRUCTION
