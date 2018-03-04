@@ -5,8 +5,10 @@
 1. [Before we start](#before-we-start)
 2. [IDEs and plugins used](#ides-and-plugins-used)
 3. [Definition](#definition)
-4. [Math](#math)
-5. [Screenshots](#screenshots)
+4. [Defining circles](#defining-circles)
+5. [Marching squares method](#marching-squares-method)
+6. [Project structure](#project-structure)
+7. [Screenshots](#screenshots)
 
 ## Before we start
 This project is based on following articles:
@@ -15,12 +17,12 @@ This project is based on following articles:
 3. "[Polygonising a scalar field](http://paulbourke.net/geometry/polygonise/)" by [Paul Bourke](http://paulbourke.net/)
 4. "[Metaballs](https://en.wikipedia.org/wiki/Metaballs)" from [Wikipedia](https://en.wikipedia.org/)
 
-Special thanks to [@aptem336](https://github.com/aptem336) for helping me to seek for information and implementations of similar projects.
+Special thanks to [@aptem336](https://github.com/aptem336) for helping me to seek for information and implementations of similar projects. Go check his own [implementation of 3D metaballs](https://github.com/aptem336/MetaBalls).
 
 *The application is developed as the part of the project for computer graphics course at [Irkutsk National Research Techincal University](http://www.istu.edu/eng/).*
 
 ## IDEs and plugins used
-- NetBeans IDE
+- NetBeans IDE ([Download](https://netbeans.org/downloads/index.html))
 - NetBeans OpenGL Pack ([Download](http://plugins.netbeans.org/plugin/3260/netbeans-opengl-pack))
 
 ## Definition
@@ -32,7 +34,7 @@ Special thanks to [@aptem336](https://github.com/aptem336) for helping me to see
 
 I'm gonna show you the way to code 2D metaballs and explain some math-related stuff.
 
-## Math
+## Defining circles
 
 _Based on Jamie Wong article listed above_
 
@@ -52,6 +54,7 @@ And finally we get the equation defining two dimensional metaballs:
 
 ![Circle equation](https://i.imgur.com/xVzLtDf.png?1)
 
+Code:
 ```Java
 public static double f(double[] B) {
     double sum = 0;
@@ -143,6 +146,18 @@ private static void buildSquare(int i, int j) {
     }
 }
 ```
+
+## Project structure
+
+The project is made up of 8 classes:
+- [Circle](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/Circle.java) class defines metaballs' structure and methods and implements basic physics
+- [Data](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/Data.java) class stores fields of parameters for metaballs
+- [Grid](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/Grid.java) class stands for grid definition
+- [Impulse](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/Impulse.java) class contains a method giving impusle to metaball
+- [Interface](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/Interface.java) class builds interface
+- [Listener](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/Listener.java) class is obviously to listen to different program events like keyboard or mouse events
+- [Metaballs](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/MetaBalls.java) class is the main class of the program
+- [wMath](https://github.com/xtenzQ/2D-metaballs/blob/master/src/Main/wMath.java) class defines all the methods calculating all math-related parameters
 
 ## Screenshots
 
