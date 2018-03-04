@@ -65,7 +65,7 @@ public static double f(double[] B) {
     return sum;
 }
 ```
-## Marching Squares Method
+## Marching squares method
 
 > **Marching squares** is a computer graphics algorithm that generates contours for a two-dimensional scalar field (rectangular array of individual numerical values) - _Wikipedia_
 
@@ -147,6 +147,40 @@ private static void buildSquare(int i, int j) {
 }
 ```
 
+Interpolation:
+```Java
+    /**
+     * Функция линейной интерполяции 
+     *
+     * @param D точка
+     * @param B точка
+     * @param fD значение функции в точке D
+     * @param fB значение функции в точке B
+     * @return точка
+     */
+    public static double[] vertexInter(double[] D, double[] B, double fD, double fB) {
+        // Получаем половинные значения на ребрах квадрата
+        double[] mS = new double[]{(D[0] + B[0]) / 2, (D[1] + B[1]) / 2};
+        double[] Q = new double[2];
+        if (Math.abs(1 - fD) < 0.0005) {
+            return D;
+        } else if (Math.abs(1 - fB) < 0.0005) {
+            return B;
+        } else if (Math.abs(fD - fB) < 0.0005) {
+            return mS;
+        } else {
+            // (1 - f(B_x, B_y)) / (f(D_x, D_y) - f(B_x, B_y) 
+            double exp = (1 - fB) / (fD - fB);
+            // Q_x = B_x + (D_x - B_x) * выражение
+            Q[0] = B[0] + (D[0] - B[0]) * exp;
+            // Q_y = B_y + (D_y - B_y) * выражение
+            Q[1] = B[1] + (D[1] - B[1]) * exp;
+        }
+        return Q;
+    }
+
+```
+
 ## Project structure
 
 The project is made up of 8 classes:
@@ -161,9 +195,23 @@ The project is made up of 8 classes:
 
 ## Screenshots
 
-Main Window:
+Main window:
 
 ![Main Window](https://i.imgur.com/YgTBaLW.png?1)
 
+Showing grid inside circles:
 
+![Grid inside circles](https://i.imgur.com/zKZG4e2.png?1)
+
+Marching squares mode enabled:
+
+![Marching squares](https://i.imgur.com/cPyVp28.png?1)
+
+With enabled interpolation:
+
+![Enable interpolation](https://i.imgur.com/kSVVwKh.png?1)
+
+Scaling up a grid:
+
+![Scaling up a grid](https://i.imgur.com/CeRcjqH.png?1)
 # UNDER CONSTRUCTION
