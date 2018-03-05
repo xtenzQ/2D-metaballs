@@ -36,7 +36,7 @@ I'm gonna show you the way to code 2D metaballs and explain some math-related st
 
 ## Defining circles
 
-_Based on Jamie Wong article listed above_
+_Based on Jamie Wong article [1]_
 
 As we have two dimensional metaballs the problem is to find all the points inside a circle limited by its bounds. Let’s look at equation defining a circle with center at (x0,y0) and radius r:
 
@@ -68,6 +68,8 @@ public static double f(double[] B) {
 ## Marching squares method
 
 > **Marching squares** is a computer graphics algorithm that generates contours for a two-dimensional scalar field (rectangular array of individual numerical values) - _Wikipedia_
+
+_Best solution with detailed explanation is given in Paul Bourke article [3]_.
 
 Binary tables:
 
