@@ -72,6 +72,7 @@ public static double f(double[] B) {
 _Best solution with detailed explanation is given in Paul Bourke article [3]_.
 
 ![Imgur](https://i.imgur.com/E8jT2fd.png)
+
 All kinds of grid cell angles
 
 Binary tables:
